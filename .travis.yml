@@ -1,4 +1,4 @@
-language: xtend
+language: java
 
 before_install:
   sudo pip install codecov
