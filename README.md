@@ -1,15 +1,13 @@
-xtend -> Codecov.io
-=======
-| [https://codecov.io/][1] | [@codecov][2] | [hello@codecov.io][3] |
-| ------------------------ | ------------- | --------------------- |
-=======
+Codecov XTend Example
+=====================
 
-> This repository serves as an **Example** on how to use codecov uploader for xtend.
+| [https://codecov.io][1] | [@codecov][2] | [hello@codecov.io][3] |
+| ----------------------- | ------------- | --------------------- |
 
-## Usage
+This repository serves as an **example** on how to use [Codecov Global][4] for XTend.
 
 
-#### Add JaCoCo plugin
+### Add Jacoco plugin
 ```xml
 <plugin>
   <groupId>org.jacoco</groupId>
@@ -33,21 +31,34 @@ xtend -> Codecov.io
 ```
 
 
-# [![travis-org](https://avatars2.githubusercontent.com/u/639823?v=2&s=50)](https://travis-ci.org) Travis C
+# Travis CI
 
 Add to your `.travis.yml` file.
 ```yml
 language:
   java
 
-before_install:
-  sudo pip install codecov
-
 after_success:
-  codecov
+  - bash <(curl -s https://codecov.io/bash)
 ```
 
+> All other CI you can simply run `bash <(curl -s https://codecov.io/bash)`.
+
+## Private Repos
+
+Add to your `.travis.yml` file.
+```yml
+env:
+  global:
+    - CODECOV_TOKEN=:uuid-repo-token
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+```
+
+View source and learn more about [Codecov Global Uploader][4]
 
 [1]: https://codecov.io/
 [2]: https://twitter.com/codecov
 [3]: mailto:hello@codecov.io
+[4]: https://github.com/codecov/codecov-bash
